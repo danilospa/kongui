@@ -1,26 +1,29 @@
-import axios from 'axios';
-
-const API_URI = 'http://localhost:8000';
+import konguiAPI from '../../clients';
 
 export default {
   state: {
     loading: false,
-    name: 'kongui',
-    reachable: false,
-    token: '',
+    apiReachable: false,
+    authToken: '',
+    error: false,
   },
   reducers: {
     setLoading: (state, payload) => Object.assign({}, state, { loading: payload }),
-    setLoginSucess: state => (Object.assign({}, state, { reachable: true })),
+    setLoginSucess: state => (Object.assign({}, state, { apiReachable: true })),
+    setToken: (state, payload) => (Object.assign({}, state, { authToken: payload })),
+    setError: state => (Object.assign({}, state, { error: true })),
   },
   effects: {
     async checkApiKey(payload) {
       this.setLoading(true);
-      const response = await axios.get(`${API_URI}/admin-api/status?apikey=${payload.apikey}`);
-      this.setLoading(false);
-      if (response.status === 200) {
+      try {
+        const response = await konguiAPI.apiKeyLogin(payload.apiKey);
         this.setLoginSucess();
-        localStorage.setItem('apikey', payload.apikey);
+        this.setToken(payload.apiKey);
+      } catch (e) {
+        this.setError(e);
+      } finally {
+        this.setLoading(false);
       }
     },
   },

@@ -5,4 +5,8 @@ const store = init({
   models,
 });
 
+store.subscribe(() => {
+  localStorage.setItem('authToken', store.getState().session.authToken || '');
+});
+
 export default store;

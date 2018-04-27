@@ -3,32 +3,25 @@ import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './login.css';
+import './index.css';
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      apikey: '',
+      apiKey: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ apikey: event.target.value });
+    this.setState({ apiKey: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     dispatch.session.checkApiKey(this.state);
-  }
-
-  apiIsReachable() {
-    if (this.props.session.reachable === true) {
-      return (<div> TRUE </div>);
-    }
-    return (<div> FALSE </div>);
   }
 
   render() {
@@ -37,17 +30,15 @@ class Login extends Component {
         <div>
           <h2>Welcome to KongUI</h2>
           <p> Please provide your credentials</p>
-          <p>Api is reachable? {this.apiIsReachable()}</p>
         </div>
         <form onSubmit={this.handleSubmit}>
           <div className="loginForm">
             <TextField
-              id="password-input"
-              value={this.state.apikey}
+              id="apiKey"
+              value={this.state.apiKey}
               onChange={this.handleChange}
               label="API Key"
               type="text"
-              autoComplete="current-password"
               fullWidth
               margin="normal"
             />
