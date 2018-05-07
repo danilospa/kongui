@@ -12,16 +12,31 @@ $ npm i
 ```
 
 Start the server (with auto reload whenever a file changes):
+
 ```bash
 $ npm start
 ```
 
+Run the lint:
+
+```bash
+$ npm run lint
+```
+
+Alternatively you may run lint with **-- --fix** which will fix automatic all fixable problems.
+
+```bash
+$ npm run lint -- --fix
+```
+
 Run the tests:
+
 ```bash
 $ npm test
 ```
 
 To build the application:
+
 ```bash
 $ npm run build
 ```
