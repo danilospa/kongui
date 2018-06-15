@@ -1,0 +1,3 @@
+const KONG_ADMIN_API_BASE_URL = process.env.KONG_ADMIN_API_BASE_URL;
+
+export { KONG_ADMIN_API_BASE_URL };
