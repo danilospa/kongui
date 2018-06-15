@@ -11,6 +11,11 @@ First of all, make sure you have Node 8.9.3 installed. Then, install all the dep
 $ npm i
 ```
 
+Copy the confi
+```bash
+$ cp .env.local.example .env.local
+```
+
 Start the server (with auto reload whenever a file changes):
 ```bash
 $ npm start
