@@ -11,15 +11,13 @@ class Login extends Component {
     this.state = {
       apiKey: '',
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({ apiKey: event.target.value });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
     dispatch.session.checkApiKey(this.state);
   }
