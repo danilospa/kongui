@@ -1,17 +1,48 @@
-import React, { Component } from 'react';
-import Grid from 'material-ui/Grid';
-import './index.css'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import './index.css';
 
-class Dashboard extends Component {
-  render() {
-    return(
-      <Grid container spacing={24}>
-        <Grid item xs={12}>
-          <div className="header__container"> 123 </div>
-        </Grid>
-      </Grid>
-    )
-  }
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+  flex: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+};
+
+function ButtonAppBar(props) {
+  const { classes } = props;
+  return (
+    <div className="header__wrapper">
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="title" color="inherit" className={classes.flex}>
+            KongUI
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
 }
 
-export default Dashboard;
+ButtonAppBar.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(ButtonAppBar);

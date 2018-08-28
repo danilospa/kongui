@@ -1,0 +1,17 @@
+.mainContent__wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.sideBar__wrapper {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 10px 0px 55px -19px rgba(0,0,0,0.1);
+}
+
+.content__wrapper {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 1rem;
+}
