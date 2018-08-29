@@ -7,7 +7,6 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducers from './reducers';
 import './index.css';
-import Header from './components/Header';
 import App from './containers/App';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);

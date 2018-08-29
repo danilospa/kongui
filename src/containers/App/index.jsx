@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from '../../components/Header';
 import SideMenu from '../../components/SideMenu';
-import Status from '../../containers/Status';
+import Status from '../../containers/StatusContainer';
 import './index.css';
 
 const App = () => (
